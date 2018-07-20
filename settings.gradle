@@ -1,0 +1,1 @@
+include ':installable_app', ':basefeature', ':feature_weather_list', ':feature_biometric', ':instantapp_weather', ':instantapp_biometric', ":model", ":network"

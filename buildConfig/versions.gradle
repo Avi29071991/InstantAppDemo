@@ -1,0 +1,34 @@
+ext.versions = [
+
+        gradle              : '4.1',
+        androidSupport     : '28.0.0-alpha1',
+
+        // Gradle Plugins
+        androidGradlePlugin : '3.0.0',
+        multiDex            : "1.0.2",
+        archComponents      : "1.1.1",
+        rxJava              : '1.2.1',
+        rxAndroid           : '1.2.1',
+        kotlin              : '1.1.51',
+        dagger              : '2.11',
+        jsr250              : '1.0',
+        javax_inject        : '1',
+        okhttp              : '3.9.0',
+        retrofit            : '2.1.0',
+        gson                : '2.4',
+        play_services       : '11.0.4',
+        junit               : '4.12',
+        spoon               : '1.2.0',
+        mockwebserver       : '3.4.1',
+        mockito_core        : '1.10.19',
+        test_runner         : '0.5',
+        neenbedanktPlugin   : '1.8',
+        espresso            : '2.2.2',
+        assertJ             : '1.7.1',
+        interceptor         : '3.9',
+        annotation_processor: '1.2',
+        url_connection      : '3.9.0',
+        mockito             : '2.11.0',
+        immutables          : '2.1.11'
+
+]

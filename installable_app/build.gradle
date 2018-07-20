@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+        applicationId "com.avinash.instantapp.demo"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+        }
+
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation project(":basefeature")
+    implementation project(":feature_weather_list")
+    implementation project(":feature_biometric")
+    implementation "com.android.support:multidex:${versions.multiDex}"
+}

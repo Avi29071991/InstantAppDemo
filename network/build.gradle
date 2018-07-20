@@ -1,0 +1,45 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+    }
+}
+
+dependencies {
+    implementation project(':model')
+    // Retrofit - Network Wrapper
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${versions.retrofit}"
+    // Okhttp - HTTP client
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    // RX Java - Functional Reactive Programming
+    implementation "io.reactivex:rxjava:${versions.rxJava}"
+    // Dagger - Dependency Injection
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+    implementation "javax.annotation:javax.annotation-api:${versions.annotation_processor}"
+    // Gson - Json parsing
+    implementation "com.google.code.gson:gson:${versions.gson}"
+    // Testing
+    testImplementation "junit:junit:${versions.junit}"
+    testImplementation "org.mockito:mockito-core:${versions.mockito}"
+    testImplementation "com.squareup.okhttp3:mockwebserver:${versions.mockwebserver}"
+    testImplementation "org.assertj:assertj-core:${versions.assertJ}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.url_connection}"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:${versions.url_connection}"
+
+    //dependencies for Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}"
+}
+

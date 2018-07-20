@@ -1,0 +1,19 @@
+apply plugin: 'com.android.instantapp'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+    }
+
+}
+
+dependencies {
+    /**
+     * Include only base feature module and feature module of respective functionality .. in this case weather feature module
+     */
+    implementation project(":basefeature")
+    implementation project(":feature_weather_list")
+}

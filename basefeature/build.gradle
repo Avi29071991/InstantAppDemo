@@ -1,0 +1,121 @@
+apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+    /**
+     * We cannot provide applicationId in the feature modules
+     */
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    /**
+     * For denoting that the feature created is the base feature we need to add the code mentioned below
+     */
+    baseFeature true
+
+    buildToolsVersion '28.0.0'
+
+}
+
+kapt {
+    generateStubs = true
+}
+
+configurations.all {
+    resolutionStrategy.force "com.android.support:support-v4:28.0.0-alpha1"
+}
+
+dependencies {
+    /**
+     * Setup for instant app features and installable applications. Need to add installable application module in 'application project' tag.
+     * Also need to provide all the non-base features in the application using 'feature project' tag
+     */
+
+    application project(":installable_app")
+    feature project(":feature_weather_list")
+    feature project(":feature_biometric")
+
+    //dependencies for unit testing
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${versions.espresso}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:${versions.espresso}"
+    testImplementation "junit:junit:${versions.junit}"
+    testImplementation "org.mockito:mockito-core:${versions.mockito_core}"
+    androidTestImplementation "com.squareup.spoon:spoon-client:${versions.spoon}"
+    androidTestImplementation "com.android.support.test:runner:${versions.test_runner}"
+    androidTestImplementation "com.android.support.test:rules:${versions.test_runner}"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:${versions.mockwebserver}"
+    androidTestImplementation "com.squareup.retrofit2:retrofit-mock:${versions.retrofit}"
+    kapt "com.android.databinding:compiler:${versions.androidGradlePlugin}"
+
+    //dependencies from android framework
+    api "com.android.support:support-v4:${versions.androidSupport}"
+    api "com.android.support:appcompat-v7:${versions.androidSupport}"
+    api "com.android.support:design:${versions.androidSupport}"
+    api "com.google.android.gms:play-services-location:${versions.play_services}"
+
+    //dependencies for reactive libraries
+    api "io.reactivex:rxjava:${versions.rxJava}"
+    api "io.reactivex:rxandroid:${versions.rxAndroid}"
+
+    //dependency for multidex
+    implementation "com.android.support:multidex:${versions.multiDex}"
+
+    //dependencies for retrofit libraries
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${versions.retrofit}"
+
+    //dependencies for Dagger libraries
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+    api "com.google.dagger:dagger:${versions.dagger}"
+    api "com.google.dagger:dagger-android:${versions.dagger}"
+    kapt "com.google.dagger:dagger-android-processor:${versions.dagger}"
+    api "com.google.dagger:dagger-android-support:${versions.dagger}"
+
+    //dependencies for Android Arch Components library
+    api "android.arch.lifecycle:runtime:${versions.archComponents}"
+    api "android.arch.lifecycle:extensions:${versions.archComponents}"
+    api "android.arch.lifecycle:viewmodel:${versions.archComponents}"
+    api "android.arch.lifecycle:livedata:${versions.archComponents}"
+    api "android.arch.lifecycle:livedata-core:${versions.archComponents}"
+    kapt "android.arch.lifecycle:compiler:${versions.archComponents}"
+
+    //dependencies for Kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}"
+
+    //dependencies for in app modules
+    api project(":model")
+    api project(":network")
+}

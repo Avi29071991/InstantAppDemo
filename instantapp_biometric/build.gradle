@@ -1,0 +1,16 @@
+apply plugin: 'com.android.instantapp'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+    }
+
+}
+
+dependencies {
+    implementation project(":basefeature")
+    implementation project(":feature_biometric")
+}

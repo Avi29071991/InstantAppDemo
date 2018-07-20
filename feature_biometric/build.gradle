@@ -1,0 +1,28 @@
+apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+}
+
+dependencies {
+    implementation project(":basefeature")
+
+    //Dependencies for dagger
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+    kapt "com.google.dagger:dagger-android-processor:${versions.dagger}"
+
+    //dependencies for Android Arch Components library
+    kapt "android.arch.lifecycle:compiler:${versions.archComponents}"
+
+}

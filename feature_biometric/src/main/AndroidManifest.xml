@@ -1,0 +1,26 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.avinash.instant.biometric">
+
+    <application>
+
+        <activity
+            android:name=".presentation.BiometricMainDisplayActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppTheme">
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="avinash.biometric.instantapp.com"
+                    android:pathPrefix="/main"
+                    android:scheme="http" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+</manifest>

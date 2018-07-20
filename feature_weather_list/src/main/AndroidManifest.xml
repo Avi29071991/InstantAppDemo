@@ -1,0 +1,54 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.avinash.instant.feature.list.weather">
+
+    <!-- PERMISSIONS FOR INTERNET -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- PERMISSIONS FOR GPS LOCATION -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application>
+        <activity
+            android:name=".presentation.activity.WeatherListActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="avinash.weather.instantapp.com"
+                    android:pathPrefix="/list"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.WeatherDetailsActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="avinash.weather.instantapp.com"
+                    android:pathPrefix="/detail"
+                    android:scheme="http" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+</manifest>
