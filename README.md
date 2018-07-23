@@ -1,5 +1,12 @@
 # InstantAppDemo
-Sample application to demonstarte the development, installation and deployment of instant app on device.
+
+Google recently released Instant Apps to developers as part of an effort to help kickoff the next big enhancement to the native app experience in Android. Instant Apps aim to help bring users into the best native app experience as quickly as possible by downloading only parts of an application when they need them. This makes it fast and easy to engage users with great mobile app experiences, even though they do not have the application installed on their devices.
+
+Instant Apps are delivered to the user in small feature modules, each containing only the code and resources needed to accomplish a specific action. Instant Apps are triggered by URL intents, meaning that they can be started from anywhere including, search results, social media shares, messages, beacons, NFC and other applications or even other Instant Apps.
+
+Instant Apps share a single code base with the installed apk counterparts and are also distributed via the Google Play Store through the Android Instant Apps section.
+
+This sample application is used to demonstarte the development and installation of instant app on device.
 
 ## Prerequisites
 
@@ -26,7 +33,7 @@ Sample application to demonstarte the development, installation and deployment o
 
 ### Creating an installable(i.e. APK) module:
 * This is the normal build module that we are all familiar with. Now it’s setup to consume the base and feature modules in order to produce an output apk which needs to be installed on user devices.
-* Since it aims to output an installable artifact this module does have an application ID.
+* Since it aims to produce an output which is an installable artifact this module does have an application ID.
 * We need to add 'com.android.application' plugin for installable module.
 * The application manifest here is the result of merging all of the other manifests that it inherits from the other feature modules. As a result its manifest is pretty sparse.
 * build.gradle for base feature module will look like :
@@ -35,7 +42,7 @@ Sample application to demonstarte the development, installation and deployment o
 
 ### Creating an instant module:
 * Instant App module - implements the com.android.instant plugin. 
-* The consume feature modules and produce a split APK zip containing all of the features that will go into the Instant App.
+* It consumes feature modules and produce a split APK zip containing all of the features that will go into the Instant App.
 * It’s pretty much an empty shell of a project without a manifest that only implements other features feature modules in the project.
 * build.gradle for base feature module will look like :
 
@@ -105,5 +112,11 @@ Sample application to demonstarte the development, installation and deployment o
 
   ![Instant app](instant_application.png)
 
+## Uploading the Instant App to the Google Play Store
 
+* To upload an instant app in google play store you can follow the link mentioned below:
+https://support.google.com/googleplay/android-developer/answer/7381861?hl=en
+
+  
+ 
 
