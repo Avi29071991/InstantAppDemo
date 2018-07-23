@@ -6,7 +6,7 @@ Instant Apps are delivered to the user in small feature modules, each containing
 
 Instant Apps share a single code base with the installed apk counterparts and are also distributed via the Google Play Store through the Android Instant Apps section.
 
-This sample application is used to demonstarte the development and installation of instant app on device.
+This sample application is used to demonstrate the development and installation of instant app on device.
 
 ## Prerequisites
 
