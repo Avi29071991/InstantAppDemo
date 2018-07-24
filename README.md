@@ -117,6 +117,12 @@ This sample application is used to demonstrate the development and installation 
 * To upload an instant app in google play store you can follow the link mentioned below:
 https://support.google.com/googleplay/android-developer/answer/7381861?hl=en
 
+## Limitations :
   
- 
+### You still need to comply with the Google's conditions for Instant Apps. Notably:
+
+* Instant Apps can only use certain permissions.
+* Instant Apps can only have a maximum size of 4 MB (counting the sum of the base apk file and the largest feature apk file). Under Google Play Instant 10MB Program, user will be able to upload instant apps with 10MB size.
+* You also need to upload an installed, non-instant app.
+* Each uploaded version of an app needs to have a higher version number than the previous version.
 
